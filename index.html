@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <section>
+        <header>
+            <a href="/" class="logo">JavaScript</a>
+            <div class="toggle" onclick="menuToggle();"></div>
+        </header>
+        <div class="glass"></div>
+        <div class="content">
+            <h2>The Code...<br><span>It is based on Nomad Coder JS class.</span></h2>
+        </div>
+        <ul class="sci">
+            <li style="--i:1"><a href="clock">Clock</a></li>
+            <li style="--i:2"><a href="#">TodoList</a></li>
+            <li style="--i:3"><a href="#">Weather</a></li>
+        </ul>
+        <form class="login hidden" id="login-form">
+            <div class="box">
+                <div class="square" style="--i:0"></div>
+                <div class="square" style="--i:1"></div>
+                <div class="square" style="--i:2"></div>
+                <div class="square" style="--i:3"></div>
+                <div class="square" style="--i:4"></div>
+                <div class="login_container">
+                    <div class="form">
+                        <h2>Login Form</h2>
+                        <form>
+                            <div class="inputBox">
+                                <input class="username" type="text" placeholder="username">
+                            </div>
+                            <div class="inputBox">
+                                <input type="submit" value="Login">
+                            </div>
+                            <p class="explanation">This is Login Form.</p>
+                            <p class="explanation">Type your name and press the button.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form class="profile_container hidden" id="profile-form">
+            <div class="card" data-tilt>
+                <img src="/src/image/user.png" alt="user profile">
+                <h2 id="greeting"></h2>
+                <p class="information">This is the study website of JavaScript.</p>
+                <p class="information">This is the result of studying.</p>
+                <a onclick="menuToggle();">OK</a>
+            </div>
+        </form>
+    </section>
+    <script src="/src/js/login.js"></script>
+    <script src="/src/js/background.js"></script>
+    <script src="/src/js/vanilla-tilt.js"></script>
+</body>
+</html>

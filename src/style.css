@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo {
+    position: relative;
+    font-size: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+}
+header .toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: url(/src/image/menu.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .toggle.active {
+    background: url(/src/image/close.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-size: 25px;
+}
+header .toggle:before {
+    content: 'Login';
+    position: absolute;
+    right: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    padding: 2px 5px;
+    background: #fff;
+    color: #111;
+}
+header .toggle.active:before {
+    content: 'Close';
+}
+section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.glass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    backdrop-filter: blur(15px);
+    z-index: 1;
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    transition-delay: 1s;
+}
+section.active .glass {
+    width: 100%;
+    backdrop-filter: blur(20px);
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
+    transition-delay: 0s;
+}
+section .content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    transition: 0.5s;
+    transition-delay: 1s;
+}
+section.active .content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-200px);
+    transition-delay: 0s;
+}
+section .content h2 {
+    position: relative;
+    color: #fff;
+    font-size: 10vw;
+    line-height: 0.55em;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Dancing Script', cursive;
+}
+section .content h2 span {
+    font-size: 0.2em;
+    font-weight: 300;
+    letter-spacing: 5px;
+    background: #fff;
+    color: #111;
+    padding: 0 10px;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+section .sci {
+    position: absolute;
+    bottom: 40px;
+    right: 100px;
+    display: flex;
+    z-index: 1000;
+}
+section .sci li {
+    list-style: none;
+    margin: 5px;
+    padding: 0 6px;
+    background: #fff;
+    transition: 0.5s;
+    transition-delay: calc(0.2s * var(--i));
+}
+section.active .sci li {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+}
+section .sci li a {
+    color: #111;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* 로그인 화면 */
+#login-form.hidden {
+    display: none;
+}
+section .login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    z-index: 100;
+}
+.box {
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    transform: translateX(200px);
+    transition-delay: 0.2s;
+}
+section.active .login .box {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0px);
+}
+.box .square {
+    position: absolute;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    animation: animate 10s linear infinite;
+    animation-delay: calc(-1s * var(--i));
+}
+@keyframes animate {
+    0%, 100% {
+        transform: translateY(-40px);
+    }
+    50% {
+        transform: translateY(40px);
+    }
+}
+.box .square:nth-child(1) {
+    top: -50px;
+    right: -60px;
+    width: 100px;
+    height: 100px;
+}
+.box .square:nth-child(2) {
+    top: 150px;
+    left: -100px;
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+}
+.box .square:nth-child(3) {
+    bottom: 50px;
+    right: -60px;
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+}
+.box .square:nth-child(4) {
+    bottom: -80px;
+    left: 100px;
+    width: 50px;
+    height: 50px;
+}
+.box .square:nth-child(5) {
+    top: -80px;
+    left: 140px;
+    width: 60px;
+    height: 60px;
+}
+.login_container {
+    position: relative;
+    width: 400px;
+    min-height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+.form h2 {
+    position: relative;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+.form h2:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 80px;
+    height: 4px;
+    background: #fff;
+}
+.form .inputBox {
+    width: 100%;
+    margin-top: 20px;
+}
+.form .inputBox input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+.form .inputBox input:placeholder {
+    color: #fff;
+}
+.form .inputBox input[type="submit"] {
+    background: #fff;
+    color: #666;
+    max-width: 100px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.explanation {
+    margin-top: 5px;
+    color: #fff;
+}
+
+/* 로그인 후 프로필 화면 */
+#profile-form.hidden {
+    display: none;
+}
+.profile_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.card {
+    width: 90%;
+    max-width: 440px;
+    color: #fff;
+    text-align: center;
+    padding: 50px 35px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    transition-delay: 0.2s;
+}
+section.active .profile_container .card{
+    opacity: 1;
+    visibility: visible;
+}
+.card img {
+    width: 140px;
+    border-radius: 50%;
+}
+.card h2 {
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 20px;
+    text-transform: capitalize;
+}
+.card p {
+    font-size: 18px;
+    margin: 10px auto;
+    max-width: 330px;
+}
+.card a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    background: #fff;
+    color: #111;
+    padding: 10px 30px;
+    border-radius: 30px;
+    margin: 30px 0 10px;
+    cursor: pointer;
+}
+.card a:hover {
+    background: #31d2d8;
+}
+
+
+@media (max-width: 991px) {
+    header {
+        padding: 20px;
+    }
+    section .sci {
+        bottom: 20px;
+        right: 20px;
+    }
+    .glass {
+        width: 50%;
+    }
+    section .content h2 {
+        font-size: 18vw;
+    }
+    section .content h2 span {
+        font-size: 0.25em;
+        letter-spacing: 2px;
+        padding: 0 5px;
+    }
+}
