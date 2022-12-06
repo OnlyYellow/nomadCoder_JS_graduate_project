@@ -40,7 +40,7 @@ header .toggle {
     position: relative;
     width: 40px;
     height: 40px;
-    background: url(./src/image/menu.png);
+    background: url(./image/menu.png);
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -50,7 +50,7 @@ header .toggle {
     align-items: center;
 }
 header .toggle.active {
-    background: url(./src/image/close.png);
+    background: url(./image/close.png);
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
