@@ -196,10 +196,10 @@ section.active .login .box {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    animation: animate 10s linear infinite;
+    animation: moving 10s linear infinite;
     animation-delay: calc(-1s * var(--i));
 }
-@keyframes animate {
+@keyframes moving {
     0%, 100% {
         transform: translateY(-40px);
     }
@@ -509,6 +509,139 @@ section.active .entire_clock {
 .entire_clock .clock_container .btn a:hover {
     background: #2f363e;
     color: #fff;
+}
+
+/* todo list */
+.quote_toDoList.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+.quote_toDoList {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60%;
+    width: 80%;
+    display: flex;
+    z-index: 100;
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    transition: 0.5s;
+}
+#quote {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 10px;
+}
+#toDoList {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 10px;
+}
+#toDoList .list_title {
+    width: 100%;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+#toDoList .toDo_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+#toDoList .toDo_container .toDo_input {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+#toDoList .toDo_container input {
+    margin-top: 8px;
+    height: 40px;
+    width: 80%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    z-index: 2;
+}
+#toDoList .toDo_container span {
+    position: absolute;
+    left: calc(35% + 40px);
+    padding: 10px 0;
+    pointer-events: none;
+    font-size: 1em;
+    transition: 0.5s;
+    color: #333;
+    letter-spacing: 0.05em;
+}
+#toDoList .toDo_container input:valid ~ span,
+#toDoList .toDo_container input:focus ~ span {
+    font-size: 0.85em;
+    transform: translateY(-32px);
+}
+#toDoList .toDo_container i {
+    position: absolute;
+    bottom: calc(50% - 50px);
+    left: calc(35% + 40px);
+    width: calc(52% - 60px);
+    height: 3px;
+    background: linear-gradient(45deg, #2196f3, #ff4685);
+    transition: 0.5s;
+    z-index: 1;
+    border-radius: 4px;
+    pointer-events: none;
+}
+#toDoList .toDo_container input:valid ~ i,
+#toDoList .toDo_container input:focus ~ i {
+    height: 40px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+}
+#toDoList .toDo_container .toDo_input .plus {
+    display: inline-block;
+    padding: 10px 30px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 40px;
+    background: linear-gradient(90deg, #755bea, #ff72c0);
+    cursor: pointer;
+}
+
+@keyframes covering {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    100% {
+        width: 50px;
+        height: 50px;
+    }
 }
 
 @media (max-width: 991px) {

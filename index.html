@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
     <link rel="stylesheet" href="./src/style.css">
+    <script src="https://kit.fontawesome.com/bdd3340036.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <section>
         <header>
-            <a href="/" class="logo">JavaScript</a>
+            <a href="" class="logo">JavaScript</a>
             <div class="toggle" onclick="menuToggle();"></div>
         </header>
         <!-- the first page of website -->
@@ -94,12 +95,37 @@
                 </div>
             </div>
         </div>
-        <!-- todo list 작성 예정 -->
+        <!-- todo list -->
+        <div class="quote_toDoList hidden">
+            <!-- 왼쪽 화면: 짧은 명언 -->
+            <div id="quote">
+                <h2>The quotes</h2><br>
+                <span id="quote_content"></span><br>
+                <b><span id="author"></span></b>
+            </div>
+            <!-- 오른쪽 화면: todo list -->
+            <form id="toDoList">
+                <div class="list_title">
+                    <h2 id="whoseList"></h2>
+                </div>
+                <div class="toDo_container">
+                    <div class="toDo_input">
+                        <input type="text" required="required">
+                        <span>"press enter to add tasks"</span>
+                        <i></i>
+                        <a class="plus">Plus</a>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
     </section>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="./src/js/login.js"></script>
     <script src="./src/js/background.js"></script>
     <script src="./src/js/vanilla-tilt.js"></script>
     <script src="./src/js/clock.js"></script>
+    <script src="./src/js/quotes.js"></script>
+    <script src="./src/js/todolist.js"></script>
 </body>
 </html>
