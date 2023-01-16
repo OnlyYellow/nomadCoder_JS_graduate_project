@@ -49,9 +49,11 @@ setInterval(() => {
 function showClock() {
     const section = document.querySelector('section');
     const clock = document.querySelector('.entire_clock');
+    const quote_task = document.querySelector('.quote_toDoList');
     section.classList.add('checkTime');
     clock.classList.remove('hidden');
     clock.classList.add('checkTime');
+    quote_task.classList.add('hidden');
 }
 
 function closeClock() {

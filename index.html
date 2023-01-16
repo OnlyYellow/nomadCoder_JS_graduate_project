@@ -21,7 +21,7 @@
         </div>
         <ul class="sci">
             <li style="--i:1" onclick="showClock();" class="showClock"><a href="#time">Clock</a></li>
-            <li style="--i:2"><a href="#">TodoList</a></li>
+            <li style="--i:2" onclick="showTodoList();"><a href="#todo_form">TodoList</a></li>
             <li style="--i:3"><a href="#">Weather</a></li>
         </ul>
         <!-- login page -->
@@ -104,18 +104,27 @@
                 <b><span id="author"></span></b>
             </div>
             <!-- 오른쪽 화면: todo list -->
-            <form id="toDoList">
+            <form id="todo_form">
                 <div class="list_title">
                     <h2 id="whoseList"></h2>
+                    <a onclick="closeTodo()">Close</a>
                 </div>
                 <div class="toDo_container">
                     <div class="toDo_input">
                         <input type="text" required="required">
-                        <span>"press enter to add tasks"</span>
-                        <i></i>
+                        <span class="placeholder">"press enter to add tasks"</span>
                         <a class="plus">Plus</a>
                     </div>
-                    
+                    <div class="line">
+                        <i></i>
+                    </div>
+                    <ul class="theList">
+                        <!-- Data comes from local storage -->
+                    </ul>
+                    <div class="totalList">
+                        <span class="listCount">You have <span class="countingTasks"></span> tasks</span>
+                        <a class="clear">Clear All</a>
+                    </div>
                 </div>
             </form>
         </div>
